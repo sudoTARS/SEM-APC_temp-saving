@@ -1,0 +1,35 @@
+[0KRunning with gitlab-runner 17.11.1 (96856197)[0;m
+[0K  on noetic-submissions Dit3_HGz, system ID: s_308363d2e34f[0;m
+section_start:1748490340:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2:latest ...[0;m
+[0KAuthenticating with credentials from $DOCKER_AUTH_CONFIG[0;m
+[0KPulling docker image apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2:latest ...[0;m
+[0KUsing docker image sha256:ae328559bbdd7a54c8baa0599ed3fc5a023bcb8b1f361b8ae82a3df34c177ad8 for apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2:latest with digest apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2@sha256:5f694e2042db93efb6a4514f4c904d1333da0570aab149b1e4e7e6641060b352 ...[0;m
+section_end:1748490342:prepare_executor[0Ksection_start:1748490342:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-dit3hgz-project-72-concurrent-0 via ip-172-31-79-229...
+section_end:1748490342:prepare_script[0Ksection_start:1748490342:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /builds/shell/teams/team-eta/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out 832c4e22 as detached HEAD (ref is master)...[0;m
+Removing ROS_VERSION
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1748490343:get_sources[0Ksection_start:1748490343:download_artifacts[0K[0K[36;1mDownloading artifacts[0;m[0;m
+[32;1mDownloading artifacts for detect (6134)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=apc-gitlab.d10.us.swri.org id[0;m=6134 responseStatus[0;m=200 OK token[0;m=NekpBQ7H
+section_end:1748490344:download_artifacts[0Ksection_start:1748490344:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:ae328559bbdd7a54c8baa0599ed3fc5a023bcb8b1f361b8ae82a3df34c177ad8 for apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2:latest with digest apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2@sha256:5f694e2042db93efb6a4514f4c904d1333da0570aab149b1e4e7e6641060b352 ...[0;m
+[32;1m$ ROS_VERSION=$(cat ROS_VERSION)[0;m
+[32;1m$ if [ "$ROS_VERSION" != "ros2" ]; then echo "This build is for ROS2 but project type is not 'ros2'. Exiting."; exit 1; fi[0;m
+[32;1m$ export ROS_VERSION=2[0;m
+[32;1m$ echo "$ROS_VERSION"[0;m
+2
+[32;1m$ sudo apt-get update[0;m
+Get:1 http://packages.ros.org/ros2/ubuntu jammy InRelease [4682 B]
+Get:2 http://packages.ros.org/ros2/ubuntu jammy/main amd64 Packages [1672 kB]
+Ign:3 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Ign:3 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Ign:3 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Err:3 http://security.ubuntu.com/ubuntu jammy-security InRelease
+  Could not connect to security.ubuntu.com:80 (185.125.190.81), connection timed out Could not connect to security.ubuntu.com:80 (185.125.190.83), connection timed out Could not connect to security.ubuntu.com:80 (91.189.91.83), connection timed out Could not connect to security.ubuntu.com:80 (185.125.190.82), connection timed out Could not connect to security.ubuntu.com:80 (91.189.91.82), connection timed out

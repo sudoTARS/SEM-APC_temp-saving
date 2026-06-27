@@ -1,0 +1,33 @@
+[0KRunning with gitlab-runner 17.11.1 (96856197)[0;m
+[0K  on noetic-submissions Dit3_HGz, system ID: s_308363d2e34f[0;m
+section_start:1748368976:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/main:latest ...[0;m
+[0KAuthenticating with credentials from $DOCKER_AUTH_CONFIG[0;m
+[0KPulling docker image apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/main:latest ...[0;m
+[0KUsing docker image sha256:92ba7b1c464a78bbb449d82360212d7146a2750238569064d91564a189eb87fd for apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/main:latest with digest apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/main@sha256:df81ee8d0dea8c5f7129d10d033c3a54052cd9dde438295e6f86048e17ac839f ...[0;m
+section_end:1748368978:prepare_executor[0Ksection_start:1748368978:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-dit3hgz-project-72-concurrent-0 via ip-172-31-79-229...
+section_end:1748368978:prepare_script[0Ksection_start:1748368978:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /builds/shell/teams/team-eta/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out 1a840b32 as detached HEAD (ref is master)...[0;m
+Removing ROS_VERSION
+Removing project_dir/
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1748368979:get_sources[0Ksection_start:1748368979:download_artifacts[0K[0K[36;1mDownloading artifacts[0;m[0;m
+[32;1mDownloading artifacts for detect (6013)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=apc-gitlab.d10.us.swri.org id[0;m=6013 responseStatus[0;m=200 OK token[0;m=-bqzZcD8
+section_end:1748368980:download_artifacts[0Ksection_start:1748368980:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:92ba7b1c464a78bbb449d82360212d7146a2750238569064d91564a189eb87fd for apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/main:latest with digest apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/main@sha256:df81ee8d0dea8c5f7129d10d033c3a54052cd9dde438295e6f86048e17ac839f ...[0;m
+[32;1m$ ROS_VERSION=$(cat ROS_VERSION)[0;m
+[32;1m$ if [ "$ROS_VERSION" != "ros1" ]; then echo "This build is for ROS1 but project type is not 'ros1'. Exiting."; exit 1; fi[0;m
+This build is for ROS1 but project type is not 'ros1'. Exiting.
+section_end:1748368981:step_script[0Ksection_start:1748368981:upload_artifacts_on_failure[0K[0K[36;1mUploading artifacts for failed job[0;m[0;m
+[32;1mUploading artifacts...[0;m
+[0;33mWARNING: build/**/test_results/**/*.xml: no matching files. Ensure that the artifact path is relative to the working directory (/builds/shell/teams/team-eta)[0;m 
+[31;1mERROR: No files to upload                         [0;m 
+section_end:1748368982:upload_artifacts_on_failure[0Ksection_start:1748368982:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1748368982:cleanup_file_variables[0K[31;1mERROR: Job failed: exit code 1
+[0;m

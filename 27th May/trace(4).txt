@@ -1,0 +1,52 @@
+[0KRunning with gitlab-runner 17.11.1 (96856197)[0;m
+[0K  on noetic-submissions Dit3_HGz, system ID: s_308363d2e34f[0;m
+section_start:1748368968:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image alpine:latest ...[0;m
+[0KPulling docker image alpine:latest ...[0;m
+[0KUsing docker image sha256:aded1e1a5b3705116fa0a92ba074a5e0b0031647d9c315983ccba2ee5428ec8b for alpine:latest with digest alpine@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c ...[0;m
+section_end:1748368969:prepare_executor[0Ksection_start:1748368969:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-dit3hgz-project-72-concurrent-0 via ip-172-31-79-229...
+section_end:1748368970:prepare_script[0Ksection_start:1748368970:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /builds/shell/teams/team-eta/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out 1a840b32 as detached HEAD (ref is master)...[0;m
+Removing ROS_VERSION
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1748368971:get_sources[0Ksection_start:1748368971:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:aded1e1a5b3705116fa0a92ba074a5e0b0031647d9c315983ccba2ee5428ec8b for alpine:latest with digest alpine@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c ...[0;m
+[32;1m$ unzip project.zip -d project_dir[0;m
+Archive:  project.zip
+   creating: shell_simulation/
+  inflating: shell_simulation/package.xml
+  inflating: shell_simulation/CMakeLists.txt
+   creating: shell_simulation/launch/
+  inflating: shell_simulation/launch/shell_simulation.launch.py
+   creating: shell_simulation/scripts/
+  inflating: shell_simulation/scripts/example_control.py
+   creating: shell_simulation/shell_simulation/
+  inflating: shell_simulation/shell_simulation/__init__.py
+   creating: shell_simulation/src/
+  inflating: shell_simulation/src/example_control.cpp
+[32;1m$ if grep -r "ament" project_dir; then # collapsed multi-line command[0;m
+project_dir/shell_simulation/CMakeLists.txt:find_package(ament_cmake REQUIRED)
+project_dir/shell_simulation/CMakeLists.txt:find_package(ament_cmake_python REQUIRED)
+project_dir/shell_simulation/CMakeLists.txt:ament_target_dependencies(example_control
+project_dir/shell_simulation/CMakeLists.txt:ament_python_install_package(${PROJECT_NAME})
+project_dir/shell_simulation/CMakeLists.txt:  find_package(ament_lint_auto REQUIRED)
+project_dir/shell_simulation/CMakeLists.txt:  set(ament_cmake_copyright_FOUND TRUE)
+project_dir/shell_simulation/CMakeLists.txt:  set(ament_cmake_cpplint_FOUND TRUE)
+project_dir/shell_simulation/CMakeLists.txt:  ament_lint_auto_find_test_dependencies()
+project_dir/shell_simulation/CMakeLists.txt:ament_package()
+project_dir/shell_simulation/package.xml:  <buildtool_depend>ament_cmake</buildtool_depend>
+project_dir/shell_simulation/package.xml:  <test_depend>ament_lint_auto</test_depend>
+project_dir/shell_simulation/package.xml:  <test_depend>ament_lint_common</test_depend>
+project_dir/shell_simulation/package.xml:    <build_type>ament_cmake</build_type>
+project_dir/shell_simulation/launch/shell_simulation.launch.py:from ament_index_python.packages import get_package_share_directory
+section_end:1748368972:step_script[0Ksection_start:1748368972:upload_artifacts_on_success[0K[0K[36;1mUploading artifacts for successful job[0;m[0;m
+[32;1mUploading artifacts...[0;m
+ROS_VERSION: found 1 matching artifact files and directories[0;m 
+Uploading artifacts as "archive" to coordinator... 201 Created[0;m  id[0;m=6013 responseStatus[0;m=201 Created token[0;m=bSRM-DNK
+section_end:1748368973:upload_artifacts_on_success[0Ksection_start:1748368973:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1748368974:cleanup_file_variables[0K[32;1mJob succeeded[0;m

@@ -1,0 +1,418 @@
+[0KRunning with gitlab-runner 17.11.1 (96856197)[0;m
+[0K  on ip-172-31-79-229 gLmu7aih, system ID: s_308363d2e34f[0;m
+section_start:1748368982:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2:latest ...[0;m
+[0KAuthenticating with credentials from $DOCKER_AUTH_CONFIG[0;m
+[0KPulling docker image apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2:latest ...[0;m
+[0KUsing docker image sha256:ae328559bbdd7a54c8baa0599ed3fc5a023bcb8b1f361b8ae82a3df34c177ad8 for apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2:latest with digest apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2@sha256:5f694e2042db93efb6a4514f4c904d1333da0570aab149b1e4e7e6641060b352 ...[0;m
+section_end:1748368984:prepare_executor[0Ksection_start:1748368984:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-glmu7aih-project-72-concurrent-0 via ip-172-31-79-229...
+section_end:1748368984:prepare_script[0Ksection_start:1748368984:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /builds/shell/teams/team-eta/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out 1a840b32 as detached HEAD (ref is master)...[0;m
+Removing src/
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1748368985:get_sources[0Ksection_start:1748368985:download_artifacts[0K[0K[36;1mDownloading artifacts[0;m[0;m
+[32;1mDownloading artifacts for detect (6013)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=apc-gitlab.d10.us.swri.org id[0;m=6013 responseStatus[0;m=200 OK token[0;m=y_qZJt3p
+section_end:1748368986:download_artifacts[0Ksection_start:1748368986:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:ae328559bbdd7a54c8baa0599ed3fc5a023bcb8b1f361b8ae82a3df34c177ad8 for apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2:latest with digest apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2@sha256:5f694e2042db93efb6a4514f4c904d1333da0570aab149b1e4e7e6641060b352 ...[0;m
+[32;1m$ ROS_VERSION=$(cat ROS_VERSION)[0;m
+[32;1m$ if [ "$ROS_VERSION" != "ros2" ]; then echo "This build is for ROS2 but project type is not 'ros2'. Exiting."; exit 1; fi[0;m
+[32;1m$ export ROS_VERSION=2[0;m
+[32;1m$ echo "$ROS_VERSION"[0;m
+2
+[32;1m$ sudo apt-get update[0;m
+Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Get:3 http://packages.ros.org/ros2/ubuntu jammy InRelease [4682 B]
+Get:4 http://packages.ros.org/ros2/ubuntu jammy/main amd64 Packages [1672 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:6 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [2948 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+Get:9 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [4395 kB]
+Get:10 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1245 kB]
+Get:11 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [47.7 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [55.7 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [4549 kB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1552 kB]
+Get:18 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [3258 kB]
+Get:19 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [83.2 kB]
+Get:20 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.2 kB]
+Fetched 40.2 MB in 3s (12.0 MB/s)
+Reading package lists...
+[32;1m$ sudo apt-get install -y build-essential openssh-client locales python3-colcon-common-extensions unzip[0;m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+build-essential is already the newest version (12.9ubuntu3).
+openssh-client is already the newest version (1:8.9p1-3ubuntu0.13).
+openssh-client set to manually installed.
+python3-colcon-common-extensions is already the newest version (0.3.0-100).
+Suggested packages:
+  zip
+The following NEW packages will be installed:
+  locales unzip
+0 upgraded, 2 newly installed, 0 to remove and 9 not upgraded.
+Need to get 4422 kB of archives.
+After this operation, 17.9 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 locales all 2.35-0ubuntu3.9 [4248 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 unzip amd64 6.0-26ubuntu3.2 [175 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 4422 kB in 1s (4849 kB/s)
+Selecting previously unselected package locales.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 116654 files and directories currently installed.)
+Preparing to unpack .../locales_2.35-0ubuntu3.9_all.deb ...
+Unpacking locales (2.35-0ubuntu3.9) ...
+Selecting previously unselected package unzip.
+Preparing to unpack .../unzip_6.0-26ubuntu3.2_amd64.deb ...
+Unpacking unzip (6.0-26ubuntu3.2) ...
+Setting up unzip (6.0-26ubuntu3.2) ...
+Setting up locales (2.35-0ubuntu3.9) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Generating locales (this might take a while)...
+Generation complete.
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+[32;1m$ sudo locale-gen en_US.UTF-8[0;m
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+Generation complete.
+[32;1m$ mkdir -p $HOME/.ssh || true[0;m
+[32;1m$ chmod 700 $HOME/.ssh[0;m
+[32;1m$ echo "${LAUNCH_PRIVATE_KEY}" > $HOME/.ssh/id_rsa[0;m
+[32;1m$ ssh-keyscan -p 22 apc-gitlab.d10.us.swri.org > $HOME/.ssh/known_hosts[0;m
+# apc-gitlab.d10.us.swri.org:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.13
+# apc-gitlab.d10.us.swri.org:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.13
+# apc-gitlab.d10.us.swri.org:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.13
+# apc-gitlab.d10.us.swri.org:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.13
+# apc-gitlab.d10.us.swri.org:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.13
+[32;1m$ chmod 600 $HOME/.ssh/id_rsa $HOME/.ssh/known_hosts[0;m
+[32;1m$ env[0;m
+ROS_VERSION=2
+NVIDIA_VISIBLE_DEVICES=all
+CI_PROJECT_NAMESPACE=shell/teams
+GITLAB_USER_ID=6
+CI_RUNNER_VERSION=17.11.1
+FF_SKIP_NOOP_BUILD_STAGES=true
+FF_USE_INIT_WITH_DOCKER_EXECUTOR=false
+CI_SERVER_NAME=GitLab
+CI_RUNNER_DESCRIPTION=ip-172-31-79-229
+GITLAB_USER_EMAIL=webuser@apc-gitlab.d10.us.swri.org
+CI_SERVER_REVISION=358d690d91c
+FF_USE_WINDOWS_LEGACY_PROCESS_STRATEGY=false
+CI_RUNNER_EXECUTABLE_ARCH=linux/amd64
+CI_REGISTRY_USER=gitlab-ci-token
+CI_API_V4_URL=https://apc-gitlab.d10.us.swri.org/api/v4
+CI_REGISTRY_PASSWORD=[MASKED]
+CI_RUNNER_SHORT_TOKEN=gLmu7aih
+CI_JOB_NAME=build:humble
+ROS_PYTHON_VERSION=3
+HOSTNAME=runner-glmu7aih-project-72-concurrent-0
+GITLAB_USER_LOGIN=webuser
+CI_PROJECT_NAME=team-eta
+CI_PIPELINE_SOURCE=push
+CI_BUILD_REF_NAME=master
+FF_RETRIEVE_POD_WARNING_EVENTS=true
+CI_JOB_STATUS=running
+CI_PIPELINE_ID=2235
+FF_DISABLE_POWERSHELL_STDIN=false
+CI_BUILD_REF_SLUG=master
+CI_COMMIT_REF_SLUG=master
+CI_SERVER=yes
+FF_SET_PERMISSIONS_BEFORE_CLEANUP=true
+CI_COMMIT_SHORT_SHA=1a840b32
+CI_JOB_NAME_SLUG=build-humble
+RUNNER_TEMP_PROJECT_DIR=/builds/shell/teams/team-eta.tmp
+CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX=apc-gitlab.d10.us.swri.org:443/shell/dependency_proxy/containers
+FF_USE_GIT_BUNDLE_URIS=true
+PWD=/builds/shell/teams/team-eta
+CI_RUNNER_TAGS=["carla", "docker", "ec2"]
+CI_PROJECT_PATH=shell/teams/team-eta
+FF_TIMESTAMPS=false
+FF_USE_NEW_BASH_EVAL_STRATEGY=false
+FF_MASK_ALL_DEFAULT_TOKENS=true
+NVIDIA_DRIVER_CAPABILITIES=display,video,compute,utility,graphics,display
+CI_SERVER_TLS_CA_FILE=/builds/shell/teams/team-eta.tmp/CI_SERVER_TLS_CA_FILE
+CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX=apc-gitlab.d10.us.swri.org:443/shell/teams/dependency_proxy/containers
+FF_USE_LEGACY_S3_CACHE_ADAPTER=false
+FF_WAIT_FOR_POD_TO_BE_REACHABLE=false
+ACCESS_TOKEN=[MASKED]
+FF_DISABLE_UMASK_FOR_KUBERNETES_EXECUTOR=false
+CI_COMMIT_REF_PROTECTED=true
+FF_USE_POWERSHELL_PATH_RESOLVER=false
+FF_USE_DOCKER_AUTOSCALER_DIAL_STDIO=true
+FF_USE_NATIVE_STEPS=true
+CI_SERVER_VERSION_MINOR=7
+CI_COMMIT_SHA=1a840b32f9650c3346951aa13ab4da185092ef4a
+HOME=/home/carla
+FF_NETWORK_PER_BUILD=false
+LANG=C.UTF-8
+CI_DEPENDENCY_PROXY_PASSWORD=[MASKED]
+CI_JOB_TIMEOUT=3600
+CI_PROJECT_VISIBILITY=private
+CI_CONCURRENT_PROJECT_ID=0
+FF_SCRIPT_SECTIONS=false
+CI_COMMIT_MESSAGE=New code submission.
+
+FF_USE_WINDOWS_JOB_OBJECT=false
+CI_JOB_JWT_V1=[MASKED]
+CI_JOB_JWT_V2=[MASKED]
+FF_DISABLE_AUTOMATIC_TOKEN_ROTATION=false
+CI_BUILD_NAME=build:humble
+FF_USE_DIRECT_DOWNLOAD=true
+CI_PAGES_DOMAIN=example.com
+FF_PRINT_POD_EVENTS=false
+CI_SERVER_VERSION=15.7.5
+AMENT_PREFIX_PATH=/opt/ros/humble
+FF_USE_POD_ACTIVE_DEADLINE_SECONDS=true
+CI_REGISTRY=apc-gitlab.d10.us.swri.org:5050
+CI_SERVER_PORT=443
+CI_PROJECT_NAMESPACE_ID=13
+FF_TEST_FEATURE=false
+CI_PAGES_URL=http://shell.example.com/teams/team-eta
+CI_PIPELINE_IID=3
+CI_REPOSITORY_URL=https://gitlab-ci-token:[MASKED]@apc-gitlab.d10.us.swri.org/shell/teams/team-eta.git
+FF_USE_FLEETING_ACQUIRE_HEARTBEATS=false
+CI_SERVER_URL=https://apc-gitlab.d10.us.swri.org
+FF_ENABLE_BASH_EXIT_CODE_CHECK=false
+GITLAB_FEATURES=
+LAUNCH_PRIVATE_KEY=-----BEGIN OPENSSH PRIVATE KEY-----
+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
+-----END OPENSSH PRIVATE KEY-----
+CI_COMMIT_DESCRIPTION=
+FF_USE_ADVANCED_POD_SPEC_CONFIGURATION=false
+CI_TEMPLATE_REGISTRY_HOST=registry.gitlab.com
+CI_JOB_STAGE=build
+CI_PIPELINE_URL=https://apc-gitlab.d10.us.swri.org/shell/teams/team-eta/-/pipelines/2235
+FF_EXPORT_HIGH_CARDINALITY_METRICS=false
+CI_DEFAULT_BRANCH=master
+FF_GIT_URLS_WITHOUT_TOKENS=false
+CI_BUILD_REF=1a840b32f9650c3346951aa13ab4da185092ef4a
+GITLAB_ENV=/builds/shell/teams/team-eta.tmp/gitlab_runner_env
+PYTHONPATH=/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages
+CI_SERVER_VERSION_PATCH=5
+CI_COMMIT_TITLE=New code submission.
+CI_PROJECT_ROOT_NAMESPACE=shell
+FF_ENABLE_JOB_CLEANUP=false
+FF_RESOLVE_FULL_TLS_CHAIN=false
+GITLAB_USER_NAME=Web User
+CI_PROJECT_DIR=/builds/shell/teams/team-eta
+SHLVL=1
+CI_RUNNER_ID=21
+CI_PIPELINE_CREATED_AT=2025-05-27T18:02:46Z
+CI_COMMIT_TIMESTAMP=2025-05-27T18:02:46+00:00
+CI_DISPOSABLE_ENVIRONMENT=true
+CI_JOB_JWT=[MASKED]
+CI_BUILD_ID=6015
+CI_SERVER_PROTOCOL=https
+CI_COMMIT_AUTHOR=IN0032001 <IN0032001@sem-app.com>
+FF_POSIXLY_CORRECT_ESCAPES=false
+CI_COMMIT_REF_NAME=master
+CI_SERVER_HOST=apc-gitlab.d10.us.swri.org
+FF_USE_DUMB_INIT_WITH_KUBERNETES_EXECUTOR=false
+CI_JOB_URL=https://apc-gitlab.d10.us.swri.org/shell/teams/team-eta/-/jobs/6015
+LD_LIBRARY_PATH=/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib
+CI_JOB_TOKEN=[MASKED]
+CI_JOB_STARTED_AT=2025-05-27T18:03:02Z
+CI_CONCURRENT_ID=0
+CI_BUILD_TOKEN=[MASKED]
+SHELL_SERVER_ACCESS_GITLAB_KEY=-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAyKS82EmwnJvq6lEqc/3jLVByHslsOy6q28hkMeVM77vEV+O9
+ObVy7WZXdUokleK0UtLxX+3cCzdavXzPgeW5Egdlpx1cLlHq/XK/muagRunq0tmj
+00lXsMhljVMOM+LwOYB/3PLtNlf1EluzF7bXJFSmcq74x3qHLamAWhazcHZCKus5
+bLPtXDHityUhsZ4G4L75b36Y9oAnTPaGgadBgcIs3lKhAjISvtB0ohp+xS1kE05V
+OsjXlW7PuplM4n6rvdc1U/ejWij5I01u794uVYp4KJuKgf95CACq5zzthBw6drR7
+0X1KgjFcTHgWaegAMXQSPQ179+79FaoyEOPy0wIDAQABAoIBAClpz0y5UQnSKNe6
+bw/H7JcSzqtKGdvRUxTQNNYTpSCqWelmKU17BUC46f5cklaZl2ys+4M4Xj22bDVG
+SLJgDyYIftPSfI9W+zDa+W9ogNaCO6TPpT/cGIx1oHheF0VgZwMHYdziC1I3L29d
+nAaeB6QJEN4E/XZ29OXY4ZQ2sUzZzdCQLXh30VnY6eO0HnpR6/DInOmaRR1p9jCv
+A5d883EVg6AYltbv7xWxqtR7P0aiCFTsLKMjrWCQieuYSTNDwJHczKLxpWJ+iizW
+Ju1K8IJoG84iZd+OWh4TXde/N7h1cZakNos0l6en2Y8/ezqB+aA4ZGNIOrd/mY0Y
+JHaa9skCgYEA/DMfDkBeuPR6kjzqJ8GH2U806VKBeTTLV1SyFZwA1j4V8dB75eoc
+9khte+4GVfFEC0l9Yzvq88HXVq8X4fflipLYzjP+SGmjG1iPsu73vX79hQtCUA3Q
+fVts5g5Hp0iP16S8hlpcRBsVEZNvVTF6Rxt7hwzRqyxdJ2BgaX/RmJUCgYEAy6q8
+EA9o6L+2fJSJP0Vpk3eGliMFvYW7LcAc2C5LFnXTPad4AwmSOYUAYXN8YnnXT9Zt
+/oSfndY+J/LEOiemxxd5mIsQ33gt9ynVagfKmw2vyWsDa/Z6idADycjokRZqCToi
+28uDdQjHOCygxWwIlaxZd3SnugO26HzXJLycO8cCgYEA7/VkExdECQ70oLe8w17s
+duNaILYT4tNMticr2ku4sCAamR4ZBMUgEWUQZt4uwQ7yAxtFZmnYP12sGho2yxYn
+HRZjmq71vshkHNzCvSmKJo7xgOkZiznZqayXjL0BiDUOR8vCZMMNDvAFt9dkEtck
+1QtdGT4lMIzhhVm54idvsZECgYA47rFDjAs3hN/uU1dKaIzqvC7TKVchc5CvaVSm
+2coDrUwvn/DcaICHs7Y3h6DtpkGZ/8cfrtMvvAQEBsjzuMHWRamoCrfcwCuZPAh8
+a1EnptvM4i1CsNPwUkW80nywkiNyEN5NssY8oQePnGoUxe5gaJ1Z1zJLvV4T/1Hk
+4xSJYQKBgQCbyi5HZjXboOCfpPfKlbI0FA+6Npeqc0LXVqcSXK5kiADcQJWRiWkv
+X0Cd2RcmkQpLauBWa1EBriHXf0DsdvhBUEKAI6Gz3E4y2qEHixsqgciP3sXoka3v
+xZirCqKXIitJ6ojrPWp7uIs0t55pNNhss/jzcd3LIiHGyc8YPdCSdw==
+-----END RSA PRIVATE KEY-----
+CI_PROJECT_DESCRIPTION=
+CI_COMMIT_BRANCH=master
+CI_PROJECT_CLASSIFICATION_LABEL=
+FF_USE_LEGACY_KUBERNETES_EXECUTION_STRATEGY=false
+ROS_LOCALHOST_ONLY=0
+CI_RUNNER_REVISION=96856197
+CI_BUILD_BEFORE_SHA=dcd4465fb3c91a32563fef957cc7a68742321b9e
+FF_KUBERNETES_HONOR_ENTRYPOINT=false
+FF_CLEAN_UP_FAILED_CACHE_EXTRACT=false
+CI_DEPENDENCY_PROXY_USER=gitlab-ci-token
+FF_USE_DYNAMIC_TRACE_FORCE_SEND_INTERVAL=false
+ROS_LANG_DISABLE=genlisp
+FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR=false
+CI_PROJECT_PATH_SLUG=shell-teams-team-eta
+CI_NODE_TOTAL=1
+SEED_7=[MASKED]
+SEED_6=[MASKED]
+LC_ALL=C.UTF-8
+SEED_5=[MASKED]
+SEED_4=[MASKED]
+SEED_3=[MASKED]
+SEED_2=[MASKED]
+SEED_1=[MASKED]
+SEED_0=[MASKED]
+CI_BUILDS_DIR=/builds
+CI_JOB_ID=6015
+CI_PROJECT_REPOSITORY_LANGUAGES=
+DOCKER_AUTH_CONFIG={
+        "auths": {
+                "apc-gitlab.d10.us.swri.org:5050": {
+                        "auth": "ZGJlZXI6Z2xwYXQtLUQ3RmYzYm1YZ0dzOXNLTHBxYlE="
+                }
+        }
+}
+FF_LOG_IMAGES_CONFIGURED_FOR_JOB=false
+PATH=/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+FF_SECRET_RESOLVING_FAILS_IF_MISSING=true
+CI_PROJECT_ID=72
+CI=true
+GITLAB_CI=true
+CI_JOB_IMAGE=apc-gitlab.d10.us.swri.org:5050/shell/ros-simulation-app/ros2:latest
+CI_COMMIT_BEFORE_SHA=dcd4465fb3c91a32563fef957cc7a68742321b9e
+CI_PROJECT_TITLE=Team ETA
+CI_SERVER_VERSION_MAJOR=15
+CI_CONFIG_PATH=build_and_test.yml@shell/shell-ci
+FF_USE_LEGACY_GCS_CACHE_ADAPTER=false
+FF_USE_FASTZIP=false
+DEBIAN_FRONTEND=noninteractive
+ROS_DISTRO=humble
+CI_BUILD_STAGE=build
+CI_DEPENDENCY_PROXY_SERVER=apc-gitlab.d10.us.swri.org:443
+CI_PROJECT_URL=https://apc-gitlab.d10.us.swri.org/shell/teams/team-eta
+OLDPWD=/home/carla
+_=/usr/bin/env
+[32;1m$ if [ ! -f "project.zip" ]; then # collapsed multi-line command[0;m
+[32;1m$ echo "--- Updating apt caches ---"[0;m
+--- Updating apt caches ---
+[32;1m$ sudo apt-get update -qq[0;m
+[32;1m$ echo "--- Initializing Colcon workspace ---"[0;m
+--- Initializing Colcon workspace ---
+[32;1m$ mkdir -p tmp_src/$CI_PROJECT_NAME[0;m
+[32;1m$ unzip project.zip -d tmp_src/$CI_PROJECT_NAME[0;m
+Archive:  project.zip
+   creating: tmp_src/team-eta/shell_simulation/
+  inflating: tmp_src/team-eta/shell_simulation/package.xml  
+  inflating: tmp_src/team-eta/shell_simulation/CMakeLists.txt  
+   creating: tmp_src/team-eta/shell_simulation/launch/
+  inflating: tmp_src/team-eta/shell_simulation/launch/shell_simulation.launch.py  
+   creating: tmp_src/team-eta/shell_simulation/scripts/
+  inflating: tmp_src/team-eta/shell_simulation/scripts/example_control.py  
+   creating: tmp_src/team-eta/shell_simulation/shell_simulation/
+  inflating: tmp_src/team-eta/shell_simulation/shell_simulation/__init__.py  
+   creating: tmp_src/team-eta/shell_simulation/src/
+  inflating: tmp_src/team-eta/shell_simulation/src/example_control.cpp  
+[32;1m$ shopt -s extglob[0;m
+[32;1m$ mv !(tmp_src) tmp_src/$CI_PROJECT_NAME/ || true[0;m
+[32;1m$ mv tmp_src src[0;m
+[32;1m$ pushd src[0;m
+/builds/shell/teams/team-eta/src /builds/shell/teams/team-eta
+[32;1m$ git clone -b ros2 ssh://git@apc-gitlab.d10.us.swri.org:22/shell/shell_simulation_launch.git[0;m
+Cloning into 'shell_simulation_launch'...
+[32;1m$ git clone -b ros2 ssh://git@apc-gitlab.d10.us.swri.org:22/shell/shell-av-ros.git[0;m
+Cloning into 'shell-av-ros'...
+[32;1m$ git clone --recursive https://github.com/swri-robotics/sem-apc-ros-bridge.git[0;m
+Cloning into 'sem-apc-ros-bridge'...
+Submodule 'carla_msgs' (https://github.com/carla-simulator/ros-carla-msgs.git) registered for path 'carla_msgs'
+Cloning into '/builds/shell/teams/team-eta/src/sem-apc-ros-bridge/carla_msgs'...
+Submodule path 'carla_msgs': checked out '081fdcdc8a4f8d4ce936b792c4ef13aba3fd7478'
+[32;1m$ popd[0;m
+/builds/shell/teams/team-eta
+[32;1m$ echo "--- Installing ROS dependencies ---"[0;m
+--- Installing ROS dependencies ---
+[32;1m$ pwd[0;m
+/builds/shell/teams/team-eta
+[32;1m$ rosdep update && rosdep install . -q -y --from-paths -i[0;m
+reading in sources list data from /etc/ros/rosdep/sources.list.d
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/osx-homebrew.yaml
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/base.yaml
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/python.yaml
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/ruby.yaml
+Hit https://raw.githubusercontent.com/ros/rosdistro/master/releases/fuerte.yaml
+Query rosdistro index https://raw.githubusercontent.com/ros/rosdistro/master/index-v4.yaml
+Skip end-of-life distro "ardent"
+Skip end-of-life distro "bouncy"
+Skip end-of-life distro "crystal"
+Skip end-of-life distro "dashing"
+Skip end-of-life distro "eloquent"
+Skip end-of-life distro "foxy"
+Skip end-of-life distro "galactic"
+Skip end-of-life distro "groovy"
+Add distro "humble"
+Skip end-of-life distro "hydro"
+Skip end-of-life distro "indigo"
+Skip end-of-life distro "iron"
+Skip end-of-life distro "jade"
+Add distro "jazzy"
+Add distro "kilted"
+Skip end-of-life distro "kinetic"
+Skip end-of-life distro "lunar"
+Skip end-of-life distro "melodic"
+Add distro "noetic"
+Add distro "rolling"
+updated cache in /home/carla/.ros/rosdep/sources.cache
+ERROR: the following packages/stacks could not have their rosdep keys resolved
+to system dependencies:
+shell_simulation: Cannot locate rosdep definition for [carla]
+section_end:1748369019:step_script[0Ksection_start:1748369019:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1748369020:cleanup_file_variables[0K[31;1mERROR: Job failed: exit code 1
+[0;m
