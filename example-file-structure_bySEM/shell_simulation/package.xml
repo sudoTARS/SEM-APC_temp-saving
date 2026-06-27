@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>shell_simulation</name>
+  <version>1.0.0</version>
+  <description>Team ETA package for students to control the ego vehicle.</description>
+  <maintainer email="muhammadsuhail.s@somaiya.edu">Team ETA</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>rclpy</depend>
+
+  <exec_depend>python3-scipy</exec_depend>
+  <!-- CARLA interface is provided externally; do not list it as a rosdep key. -->
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
